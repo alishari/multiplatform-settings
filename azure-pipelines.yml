@@ -20,6 +20,12 @@ jobs:
             mkdir -p ./jdk/binaries/
             curl https://cdn.azul.com/zulu/bin/zulu11.56.19-ca-fx-jdk11.0.15-linux_x64.tar.gz --output ./jdk/zulu11.56.19-ca-fx-jdk11.0.15-linux_x64.tar.gz 
 
+      - task: Bash@3
+        inputs:
+          targetType: 'inline'
+          script: |
+            sudo apt-get install libqdbm-dev
+
       - task: JavaToolInstaller@0
         inputs:
           jdkFile: ./jdk/zulu11.56.19-ca-fx-jdk11.0.15-linux_x64.tar.gz
